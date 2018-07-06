@@ -1,0 +1,342 @@
+@import "../../../resources/templates/organizationMoments/moments.wxss";
+@import "../../../resources/templates/cards/cards.wxss";
+.container {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    /* font-family: 'Microsoft YaHei', SimSun; */
+    letter-spacing: 0.05em;
+}
+
+.image-container {
+    position: fixed;
+    width: 100%;
+    height: 150px;
+    font-size: 0;
+    z-index: -1;
+}
+
+.image-container image {
+    width: 100%;
+}
+
+.background-window {
+    width: 100%;
+    height: 150px;
+}
+
+.logo {
+    position: absolute;
+    top: 100px;
+    left: 35%;
+    z-index: 99;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.main-body {
+    padding-top: 60px;
+    background-color: white;
+    position: relative;
+}
+
+.attention-container {
+    position: fixed;
+    right: 10px;
+    top: 100px;
+    z-index: 0;
+    text-align: center;
+    font-size: 9px;
+    color: white;
+}
+
+.attention-icon {
+    width: 25px;
+    height: 25px;
+}
+
+.organization-information-container .organization-name {
+    text-align: center;
+    font-size: 26px;
+    font-weight: bolder;
+    opacity: 0.8;
+}
+
+.brief-introduction .header {
+    text-align: center;
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.brief-introduction .header image {
+    width: 10px;
+    height: 10px;
+}
+
+.information-sider li {
+    display: block;
+    margin-left: 10px;
+    margin-top: 5px;
+    font-size: 14px;
+    opacity: 0.6;
+}
+
+.information-sider image {
+    vertical-align: middle;
+    margin-right: 3px;
+    width: 20px;
+    height: 20px;
+}
+
+.dashline {
+    margin-top: 10px;
+    height: 1px;
+    border-top: 1px dashed rgba(0, 0, 0, 0.1);
+}
+
+.menu-container {
+    margin-top: 10px;
+    padding-left: 10px;
+    font-size: 21px;
+    font-weight: bolder;
+    color: black;
+}
+
+.non-hover-text {
+    opacity: 0.4;
+}
+
+.hover-text {
+    opacity: 0.8;
+}
+
+.activities-container .activity {
+    margin-top: 10px;
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #FAFAFA;
+    border-radius: 5px;
+    color: rgba(0, 0, 0, 0.78);
+    width: calc(50vw - 20px);
+    height: 200px;
+    padding-top: 30px;
+}
+
+.progress {
+    font-size: 12px;
+    opacity: 0.72;
+    color: #FF9800;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.activity-cover-image {
+    width: 100%;
+    max-height: 80%;
+}
+
+.activity-name {
+    opacity: 0.7;
+    font-size: 13px;
+    font-weight: bolder;
+    letter-spacing: 0.1em;
+    text-align: center;
+}
+
+.userInfo {
+    position: relative;
+}
+
+.userInfo .avatar {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.userInfo view {
+    margin-left: 50px;
+}
+
+.userInfo .username {
+    font-size: 14px;
+    letter-spacing: 0.1em;
+}
+
+.userInfo .time {
+    font-size: 12px;
+    opacity: 0.5;
+}
+
+.picture-container {
+    background-color: white;
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    column-count: 2;
+    column-gap: 10px;
+    column-width: calc(50%-15px);
+}
+
+.picture-container image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+.explore {
+    height: 100vh;
+}
+
+.tabpage {
+    height: calc(100vh - 33px);
+    overflow: hidden;
+}
+
+.tabpage.scroll {
+    overflow: scroll;
+}
+
+.hot-title {
+    font-size: 13px;
+    margin-left: 3%;
+    color: #FF359A;
+}
+
+.past-title {
+    font-size: 13px;
+    margin-left: 3%;
+    color: #FF9800;
+}
+
+.hot {
+    background-color: whitesmoke;
+    margin-bottom: 10px;
+    margin-left: 2%;
+    margin-right: 2%;
+    height: 100px;
+}
+
+.past {
+    background-color: whitesmoke;
+    margin-bottom: 10px;
+    margin-left: 2%;
+    margin-right: 2%;
+    height: 100px;
+}
+
+.registration .name {
+    font-size: 18px;
+}
+
+.regis-info {
+    font-size: 12px;
+}
+
+.hot image {
+    width: 100%;
+    height: 100px;
+}
+
+.past image {
+    width: 100%;
+    height: 100px;
+}
+
+.eachmanager {
+    display: inline-block;
+    width: 12%;
+    height: 48px;
+    margin-left: 3%;
+    border-radius: 50%;
+}
+
+.eachmanager image {
+    width: 100%;
+    height: 100%;
+}
+
+.regis-image {
+    width: 45%;
+    height: 100px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.regis-info {
+    padding-left: 5%;
+    display: inline-block;
+    width: 50%;
+}
+
+.regis-info .name {
+    margin-bottom: 10%;
+    font-size: 15px;
+    color: deepskyblue;
+}
+
+.regis-info .hoster {
+    color: black
+}
+
+.regis-info .host {
+    color: black;
+    display: inline-block;
+    width: 40%;
+    font-weight: bold;
+    margin-top: 2%;
+}
+
+.regis-info .start-time {
+    display: inline-block;
+    width: 60%;
+}
+
+.regis-info .location {
+    display: inline-block;
+    width: 40%;
+}
+
+.manager {
+    font-size: 13px;
+    margin-left: 3%;
+    color: #FF359A;
+}
+
+.member {
+    font-size: 13px;
+    margin-left: 3%;
+    color: #FF9800;
+}
+
+.activity-album {
+    display: inline-block;
+    width: 40%;
+    height: 165px;
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.album-pic {
+    background-color: whitesmoke;
+    width: 100%;
+    height: 150px;
+}
+
+.album-name {
+    display: inline-block;
+    width: 85%;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.album-num {
+    display: inline-block;
+    font-size: 12px;
+}

@@ -1,0 +1,183 @@
+@import "slideout.wxss";
+
+page {
+  height: 100%;
+}
+
+swiper-item {
+  overflow: scroll;
+}
+
+.container {
+  padding: 0;
+  height: 100%;
+  text-align: left;
+  font-size: 12pt;
+}
+
+.container, .calender, swiper {
+  height: 100%;
+}
+
+/** calender header  */
+
+.calender-header {
+  height: 40px;
+  padding: 0 0 0 20px;
+  background-color: white;
+}
+
+.year-month-title {
+  text-align: left;
+}
+
+.year-month-title view {
+  display: inline-block;
+}
+
+.year-month-title .month {
+  font-size: 22px;
+  font-weight: 700;
+  color: #767676;
+}
+
+.year-month-title .year {
+  margin-left: 10px;
+  font-size: 19px;
+  font-weight: 400;
+  color: #7d7d7d;
+}
+
+.currentYearAndMonth view {
+  display: inline-block;
+}
+
+.weekday view {
+  font-size: 14px;
+  color: #929292;
+}
+
+.go-to-today-btn {
+  float: right;
+  font-size: 0;
+}
+
+.go-to-today-icon {
+  width: 24px;
+  height: 24px;
+  padding: 6px 20px;
+}
+
+/** calender header end */
+
+/** calender body */
+
+.calender-body {
+  height: calc(100% - 40px);
+}
+
+.week {
+  padding: 0 10px;
+  overflow: hidden;
+  background-color: white;
+}
+
+/*** day */
+
+.content {
+  height: 100%;
+  padding: 0 10px;
+}
+
+.day {
+  display: table;
+  position: relative;
+  width: calc(100% - 20px);
+  min-height: 60px;
+  border-top: 1px solid #efefef;
+}
+
+.day::after {
+  padding: 0;
+  margin: 0;
+  content: "";
+  width: 40px;
+  height: 1px;
+  background-color: white;
+  position: absolute;
+  left: 0;
+  top: -1px;
+}
+
+/**** is today */
+
+.day-head.istoday .date, .day-head.istoday .weekday {
+  color: #f8af3b;
+  z-index: 10;
+}
+
+/**** is today end */
+
+/**** day head */
+
+.day-head {
+  display: table-cell;
+  border-right: 1px solid #efefef;
+  width: 25%;
+}
+
+.day-head .date {
+  display: inline-block;
+  width: 35px;
+  padding-right: 5px;
+  text-align: right;
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 28px;
+  color: #707070;
+}
+
+.day-head .weekday {
+  display: inline-block;
+  text-align: center;
+  font-size: 16px;
+  color: #7f7f7f;
+}
+
+.day-head .festival {
+  text-align: right;
+  font-size: 16px;
+  margin: 3px 15px 3px 0;
+  color: rgba(255, 0, 0, 0.77);
+}
+
+/**** day head end */
+
+/**** day body */
+
+.day-body {
+  display: table-cell;
+  width: 75%;
+  vertical-align: top;
+  text-align: left;
+}
+
+.events {
+  padding: 0;
+}
+
+.event {
+  display: inline-block;
+  font-size: 13px;
+  color: white;
+  padding: 0 7px 0 7px;
+  margin: 5px 0 5px 5px;
+  border-radius: 100px;
+  box-shadow: 0px 1px 3px 0px #ccc;
+}
+
+/**** day body end */
+
+/*** day end */
+
+/** calender body end */

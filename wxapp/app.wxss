@@ -1,0 +1,24 @@
+/**app.wxss**/
+
+@import '/utils/weui/weui.wxss';
+
+/*
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}
+*/
+
+.container {
+    font-family: -apple-system-font, Helvetica Neue, sans-serif;
+    /* font-family: Heiti, "Microsoft YaHei","SimHei", 微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu; */
+}
+
+.bold {
+    font-weight: bold;
+}

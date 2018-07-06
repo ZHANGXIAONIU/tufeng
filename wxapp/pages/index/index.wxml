@@ -1,0 +1,16 @@
+<!--index.wxml-->
+<view class="container">
+    <button wx:if="{{showButton}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+    <view class="picker" wx:if="{{show}}">
+        <view class="outline">选择校区</view>
+        <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+            <view class="picker">
+                <span>{{multiArray[0][multiIndex[0]]}}</span> - <span>{{multiArray[1][multiIndex[1]]}}</span>
+            </view>
+        </picker>
+
+        <button class="confirm-button" bindtap="confirmCollege">
+          确定
+        </button>
+    </view>
+</view>

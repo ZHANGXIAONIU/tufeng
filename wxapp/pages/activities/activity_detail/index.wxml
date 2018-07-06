@@ -1,0 +1,204 @@
+<scroll-view scroll-y="true" class="container" bindscroll="tabpageScroll" bindscrolltolower="scrollToLower">
+
+    <view class="background">
+        <image class="background-picture" src="{{activity.image}}" mode="aspectFill"></image>
+    </view>
+
+    <view class="photoLiveTitle" style="background-image: url({{tabsBackground}})">
+        <view class="photoLive">照片直播：图蜂云摄影</view>
+        <view class="intoLive" bindtap="navigateToWebView">进入直播 > </view>
+    </view>
+
+    <view class="word">
+        <view class="title">
+            {{activity.name}}
+        </view>
+        <view class="likeCount">
+            <view class="heart_">
+                <image src="{{heartIcon}}"></image>
+            </view>
+            <view class="count">
+                {{activity.likers}}
+            </view>
+        </view>
+        <view style="clear: both;">
+
+        </view>
+        <view class="time">
+            {{activity.startTime}}~{{activity.endTime}}
+        </view>
+        <view class="place">
+            {{activity.location}}
+        </view>
+    </view>
+
+    <view class="tabs">
+
+        <view class="tab {{tabIndex === index ? 'active' : ''}}" wx:for="{{tabs}}" wx:for-item="tab" wx:key="{{index}}" bindtap="clickTab" data-index="{{index}}">
+            {{tab}}
+        </view>
+    </view>
+
+    <!-- 时间轴 -->
+    <view class="time-axis" wx:if="{{tabIndex === 0}}">
+        <view class="part-group">
+            <view class="part" wx:for="{{parts}}" wx:for-item="part" wx:key="{{*index}}">
+                <view class="partaxis">
+                </view>
+                <view class="axis" wx:if="{{index !== parts.length-1}}">
+                </view>
+                <view class="partword" style="{{part.mark ? 'color:#FF9800' : ''}}" wx:if="{{index !== parts.length-1}}">
+                    <view class="partname">
+                        {{part.name}}
+                    </view>
+                    <view class="partstartTime">
+                        {{part.normalTime}}
+                    </view>
+                    <view class="partPlace">
+                        {{part.location}}
+                    </view>
+                </view>
+                <view class="last-partword" style="{{part.mark ? 'color:#FF9800' : ''}}" wx:if="{{index === parts.length-1}}">
+                    <view class="partname">
+                        {{part.name}}
+                    </view>
+                    <view class="stagestartTime">
+                        {{part.normalTime}}
+                    </view>
+                    <view class="partPlace">
+                        {{part.location}}
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="leftSideContainer">
+            <view class="leftBox" wx:for="{{leftSideBox}}" wx:key="{{*index}}">
+                <view class="applyBox" style="top:{{item.top}}px;">报名</view>
+                <view class="line1" style="top:{{item.top+15}}px;left:{{item.left}}px;width:{{item.width}}px;transform:rotate({{item.deg1}}deg)"></view>
+                <view class="line2" style="top:{{item.top+15}}px;left:{{item.left}}px;width:{{item.width}}px;transform:rotate({{item.deg2}}deg)"></view>
+            </view>
+        </view>
+    </view>
+
+    <!-- 相册 -->
+    <view class="photo-album" wx:if="{{tabIndex === 1}}">
+        <!-- <view class="photo-choose" bindtap="chooseImage">
+            <image class="photoIcon" src="{{photoIcon}}" />
+            <view class="upload">
+                上传照片
+            </view>
+        </view> -->
+        <view class="weui-cells">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <view class="weui-uploader">
+                        <view class="weui-uploader__hd">
+
+                        </view>
+                        <view class="weui-uploader__bd">
+                            <view class="weui-uploader__files">
+                                <block wx:for="{{images}}" wx:key="*this" wx:for-item="image">
+                                    <view class="weui-uploader__file" bindtap="previewImage" id="{{image}}" style="{{imageStyles[index]}}">
+                                        <image class="weui-uploader__img" src="{{image}}" mode="aspectFill" />
+                                    </view>
+                                </block>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 简介 -->
+    <view class="brief-introduction" wx:if="{{tabIndex === 2}}">
+        <!-- 主办方 -->
+        <view class="sponsor">
+            <view class="outline">
+                主办方
+            </view>
+
+            <view class="organization" wx:for="{{organization}}" wx:for-item="org" wx:key="{{*index}}">
+                <view class="org-logo">
+                    <image src="{{org.logo_url}}"></image>
+                </view>
+                <view class="org-name">{{ org.name }}</view>
+            </view>
+        </view>
+
+        <!-- 奖励类型 -->
+        <view class="award">
+            <view class="outline">
+                奖励类型
+            </view>
+            <view class="award-item" wx:if="{{item != '无'}}" wx:for="{{[activity.sports_medals, activity.public_service_hours, activity.prize, activity.other_prize]}}">
+                {{ nameMap[index] + "：" + item }}
+            </view>
+        </view>
+
+        <!-- 活动介绍 -->
+        <view class="introduction">
+            <view class="outline">
+                活动介绍
+            </view>
+            <view>
+                {{activity.description}}
+            </view>
+        </view>
+    </view>
+    <!-- 留言板 -->
+    <view class="message-board" wx:if="{{tabIndex === 3}}">
+        <!-- <input class="message" type="text" name="Comment" placeholder="单行输入" bindinput="commentInput" /> -->
+        <!-- <view class="send" bindtap="postComment">发送</view> -->
+        <view class="comment" wx:for="{{activity.comments}}" wx:for-item="comment">
+            <view class="comment-user">
+                <view class="comment-avatar">
+                    <image src="{{comment.user.avatar}}"></image>
+                </view>
+                <view class="comment-info">
+                    <view class="comment-username">
+                        {{comment.user.name}}
+                    </view>
+                    <view class="comment-time">
+                        {{comment.commentTime}}
+                    </view>
+                </view>
+                <button class="close">X</button>
+            </view>
+
+            <view class="content">
+                {{comment.content}}
+            </view>
+        </view>
+    </view>
+
+    <!-- article-calendar-container -->
+    <view class="articles-container">
+        <view class="outline">
+            相关推送
+        </view>
+        <view class="articles">
+            <view class="articlesInOneDay">
+                <view class="article" wx:for="{{articles}}" data-url="{{article.wechat_url}}" wx:for-item="article" wx:key="{{*index}}" bindtap="rollToWebview">
+                    <view class="picture">
+                        <image src="{{article.image}}"></image>
+                    </view>
+
+                    <view class="content">
+                        <view class="title {{windowSize.width < 400 ? 'oneLineText' : ''}}">
+                            {{article.title}}
+                        </view>
+
+                        <view class="time">
+                            {{article.starttime+"~"+article.endtime}}
+                        </view>
+
+                        <view class="location" wx:if="{{article.title.length < 18 || article.location.length < 7}}">
+                            {{article.location}}
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+</scroll-view>
